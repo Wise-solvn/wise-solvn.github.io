@@ -1,0 +1,500 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Alto Pharmacy — Serving Smiles. Serving Health.</title>
+  <meta name="description" content="Alto Pharmacy — friendly, community-focused pharmacy. Prescription refills, wellness consultations, immunizations, and more." />
+  <link rel="icon" type="image/x-icon" href="Images/ALTO.ico">
+  <!-- Simple reset + fonts -->
+  <style>
+    :root{
+      --green-900: #0f5132; /* deep green background */
+      --green-700: #1d7a4b;
+      --green-600: #2b9a5f;
+      --accent: #1f8a4f;
+      --muted: #6b7a73;
+      --card-bg: #f6fbf7;
+      --radius: 12px;
+      --maxwidth: 1120px;
+      --ff: "Helvetica Neue", Arial, sans-serif;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:var(--ff);
+      color: #163d2b;
+      background: #ffffff;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+    }
+
+    a{color:inherit; text-decoration:none}
+    img{max-width:100%; display:block}
+
+    /* Layout container */
+    .site {
+      max-width: var(--maxwidth);
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header */
+    header{
+      background: var(--green-900);
+      color:#fff;
+      padding: 18px 0;
+    }
+    .topbar {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      max-width: var(--maxwidth);
+      margin:0 auto;
+      padding: 0 20px;
+    }
+    .brand {
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+    .brand img{
+      height:56px;
+      width:auto;
+      border-radius:10px;
+      background: transparent;
+    }
+    .brand .wordmark{
+      display:flex;
+      flex-direction:column;
+      line-height:1;
+    }
+    .brand .name{
+      font-weight:700;
+      font-size:20px;
+      letter-spacing:1px;
+    }
+    .brand .tag{
+      font-size:13px;
+      opacity:.95;
+      color: #f7f1d1; /* warm light */
+    }
+
+    nav.desktop-nav{
+      display:flex;
+      gap:20px;
+      align-items:center;
+    }
+    nav.desktop-nav a{
+      color: #e9f4ef;
+      font-weight:600;
+      padding:8px 12px;
+      border-radius:8px;
+    }
+    .btn-contact{
+      background:var(--green-600);
+      color:white;
+      padding:10px 16px;
+      border-radius:10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,.12);
+      font-weight:700;
+    }
+
+    /* Mobile nav */
+    .mobile-controls{
+      display:none;
+    }
+
+    /* Hero */
+    .hero{
+      background: var(--green-900);
+      color: #fff;
+      padding:48px 20px;
+      border-bottom-left-radius: 22px;
+      border-bottom-right-radius: 22px;
+    }
+    .hero-inner{
+      max-width:var(--maxwidth);
+      margin:0 auto;
+      display:grid;
+      grid-template-columns: 1fr 420px;
+      gap:28px;
+      align-items:center;
+    }
+    .hero-copy h1{
+      margin:0 0 14px 0;
+      font-size:44px;
+      line-height:1.05;
+    }
+    .hero-copy p{
+      margin:0 0 20px 0;
+      color: #eaf6ed;
+      max-width:640px;
+      font-size:17px;
+    }
+    .hero-actions{
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
+    .cta{
+      display:inline-block;
+      background:var(--green-600);
+      color:white;
+      padding:14px 18px;
+      border-radius:10px;
+      font-weight:700;
+      box-shadow: 0 6px 12px rgba(13, 87, 47, .16);
+    }
+    .secondary-cta{
+      background:transparent;
+      color:#dff3e3;
+      padding:12px 16px;
+      border-radius:10px;
+      border:1px solid rgba(255,255,255,.08);
+    }
+
+    .hero-visual {
+      border-radius:18px;
+      overflow:hidden;
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      box-shadow: 0 8px 22px rgba(2,31,18,.18);
+    }
+    .hero-visual img{ width:100%; height:100%; object-fit:cover; display:block; }
+
+    /* Main content */
+    main{ padding:36px 0; }
+    .grid {
+      display:grid;
+      grid-template-columns: 1fr 420px;
+      gap:28px;
+      align-items:start;
+      max-width:var(--maxwidth);
+      margin:0 auto;
+      padding:0 20px;
+    }
+
+    /* About card */
+    .card{
+      background:var(--card-bg);
+      padding:18px;
+      border-radius:14px;
+    }
+    .about .card img{
+      width:100%;
+      border-radius:10px;
+      height:180px;
+      object-fit:cover;
+    }
+    .about h2{ margin:8px 0 12px 0; font-size:22px; color:var(--green-900) }
+
+    /* Services */
+    .services{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap:14px;
+    }
+    .service{
+      background:white;
+      padding:18px;
+      border-radius:12px;
+      box-shadow: 0 6px 18px rgba(10,28,22,.06);
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
+    .service .ico{
+      width:44px;
+      height:44px;
+      border-radius:10px;
+      display:grid;
+      place-items:center;
+      background: linear-gradient(180deg,var(--green-700),var(--green-600));
+      color:white;
+      font-weight:700;
+    }
+    .service h3{ margin:0; font-size:16px; color:var(--green-900) }
+    .service p{ margin:4px 0 0 0; font-size:13px; color:var(--muted) }
+
+    /* Contact card */
+    .contact-card{
+      padding:18px;
+      border-radius:14px;
+      background:linear-gradient(180deg,#ffffff, #f2fbf7);
+      box-shadow: 0 6px 16px rgba(14,53,33,.04);
+      text-align:left;
+    }
+    .contact-card h3{ margin:0 0 8px 0; color:var(--green-900) }
+    .contact-card p{ margin:0 0 12px 0; color:var(--muted) }
+    .contact-card .btn{
+      display:inline-block;
+      background:var(--green-600);
+      color:white;
+      padding:12px 18px;
+      border-radius:10px;
+      text-decoration:none;
+      font-weight:700;
+    }
+
+    footer{
+      margin-top:28px;
+      padding:20px 0;
+      background: beige;
+      color: #1f2b27;
+      border-top: 1px solid #eff7f1;
+    }
+    .footer-inner{
+      max-width:var(--maxwidth);
+      margin:0 auto;
+      padding:0 20px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 980px){
+      .hero-inner, .grid { grid-template-columns: 1fr; }
+      .hero-copy h1{ font-size:34px; }
+      .brand img{ height:48px }
+      nav.desktop-nav{ display:none }
+      .mobile-controls{ display:block }
+      .topbar{ padding-bottom:6px }
+      .hero{ padding:28px 12px }
+    }
+
+    @media (max-width: 520px){
+      .hero-copy h1{ font-size:28px; }
+      .brand .name{ font-size:18px }
+      .brand .tag{ font-size:12px }
+      .service .ico{ width:40px; height:40px }
+    }
+
+    /* small helper */
+    .muted { color:var(--muted) }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="topbar">
+      <div class="brand">
+        <!-- Replace with your uploaded logo file; currently expects images/logo.png -->
+        <img src="Images/alto.jpg" alt="Alto Pharmacy logo" id="site-logo" />
+        <div class="wordmark">
+          <div class="name">ALTO PHARMACY</div>
+          <div class="tag">Serving Smiles. Serving Health.</div>
+        </div>
+      </div>
+
+      <!-- Desktop nav -->
+      <nav class="desktop-nav" aria-label="Primary">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a class="btn-contact" href="#contact">Contact Us</a>
+      </nav>
+
+      <!-- Mobile controls -->
+      <div class="mobile-controls">
+        <button id="hamburger" aria-label="Open menu" style="background:transparent;border:0;color:white;font-size:20px">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="home" aria-labelledby="hero-title">
+    <div class="hero-inner">
+      <div class="hero-copy">
+        <h1 id="hero-title">Your Trusted Health Partner</h1>
+        <p>We provide a wide range of pharmacy services to help you and your family stay healthy — friendly staff, reliable care, and community-minded support.</p>
+        <div class="hero-actions">
+          <a class="cta" href="#contact" role="button">Contact Us</a>
+          <a class="secondary-cta" href="#services">See Services</a>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-hidden="true">
+        <!-- Replace with hero image if you have one at images/hero.jpg -->
+        <img src="Images/mfamasia.jpg" alt="Smiling pharmacist" onerror="this.style.background='#eaf7ee'; this.alt='Hero photo placeholder';" />
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <div class="grid">
+      <!-- LEFT: About + extra -->
+      <section class="about">
+        <div class="card">
+          <h2>About Us</h2>
+          <img src="Images/mfamasia.jpg" alt="Pharmacist speaking with a patient" onerror="this.style.background='#f6faf7'" />
+          <p style="margin-top:12px">Alto Pharmacy is committed to providing friendly and professional care for our community. Our team focuses on personalized medication counseling, safe dispensing, and helping you make the best choices for your family's health.</p>
+        </div>
+
+        <div style="height:18px"></div>
+
+        <div class="card">
+          <h2>Community First</h2>
+          <p>We collaborate with local clinics, offer seasonal wellness clinics, and regularly host health education sessions. Check our blog for upcoming events and tips to stay well year-round.</p>
+        </div>
+      </section>
+
+      <!-- RIGHT: Services + Contact -->
+      <aside>
+        <div style="margin-bottom:18px">
+          <h2 style="color:var(--green-900); margin:0 0 12px 0">Our Services</h2>
+          <div class="services" id="services">
+            <div class="service">
+              <div class="ico">Rx</div>
+              <div>
+                <h3>Prescription Refills</h3>
+                <p class="muted">Fast, accurate dispensing and refill reminders.</p>
+              </div>
+            </div>
+
+            <div class="service">
+              <div class="ico">💬</div>
+              <div>
+                <h3>Health Consultations</h3>
+                <p class="muted">Private advice from our pharmacists.</p>
+              </div>
+            </div>
+
+            <div class="service">
+              <div class="ico">🚚</div>
+              <div>
+                <h3>Medication Delivery</h3>
+                <p class="muted">Local home delivery — convenient and contactless.</p>
+              </div>
+            </div>
+
+            <div class="service">
+              <div class="ico">💉</div>
+              <div>
+                <h3>Immunizations</h3>
+                <p class="muted">Flu shots and seasonal vaccinations.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-card" id="contact" aria-labelledby="contact-title">
+          <h3 id="contact-title">Contact & Location</h3>
+          <p class="muted">Get in touch with us or visit our pharmacy today. We're happy to help — call, email, or drop by during business hours.</p>
+
+          <div style="display:flex; gap:8px; flex-wrap:wrap; margin-top:12px">
+            <!-- Mock links (placeholder) -->
+            <a href="tel:+1234567890" class="btn" aria-label="Call Alto Pharmacy">Call: +255 613 505 013</a>
+            <a href="mailto:altopharmacy1@outlook.com" class="btn" style="background:#2b9a5f">Email</a>
+          </div>
+
+          <p style="margin-top:12px; font-size:13px" class="muted">
+            Kiwanja cha Ndege(Wajenzi juction) · Mon–Sun 8:00Am – 22:00pm· 
+          </p>
+        </div>
+      </aside>
+    </div>
+
+    <div class="site" style="margin-top:28px">
+      <section class="highlights" aria-hidden="true" style="display:grid; grid-template-columns:repeat(3,1fr); gap:14px;">
+        <div class="card" style="text-align:center; padding:16px">
+          <strong>Trusted Pharmacists</strong>
+          <div class="muted" style="margin-top:6px">Qualified, licensed staff focused on you</div>
+        </div>
+        <div class="card" style="text-align:center; padding:16px">
+          <strong>Fast Service</strong>
+          <div class="muted" style="margin-top:6px">Short wait times, same-day refills</div>
+        </div>
+        <div class="card" style="text-align:center; padding:16px">
+          <strong>Community Care</strong>
+          <div class="muted" style="margin-top:6px">Events, education, and partnerships</div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div style="display:flex; align-items:center; gap:10px;">
+        <img src="Images/alto.jpg" alt="Alto logo" style="height:44px; width:auto;"/>
+        <div>
+          <div style="font-weight:700">Alto Pharmacy</div>
+          <div class="muted" style="font-size:13px">Serving Smiles. Serving Health.</div>
+        </div>
+      </div>
+
+      <div style="font-size:13px" class="muted">© <span id="year"></span> Alto Pharmacy · All rights reserved</div>
+    </div>
+  </footer>
+
+  <!-- Mobile nav overlay -->
+  <div id="mobileMenu" style="display:none; position:fixed; inset:0; z-index:1200; background:rgba(0,0,0,.4);">
+    <div style="background: lightblue; width:280px; height:100vh; padding:18px;">
+      <div style="display:flex; align-items:center; justify-content:space-between;">
+        <div style="display:flex; gap:12px; align-items:center">
+          <img src="Images/alto.jpg" alt="Alto logo" style="height:44px" />
+          <div style="font-weight:700">ALTO PHARMACY</div>
+        </div>
+        <button id="closeMobile" style="background:transparent;border:0;font-size:22px">✕</button>
+      </div>
+
+      <nav style="margin-top:28px; display:flex; flex-direction:column; gap:12px;">
+        <a href="#home" class="mutelink">Home</a>
+        <a href="#about" class="mutelink">About</a>
+        <a href="#services" class="mutelink">Services</a>
+        <a href="#contact" class="mutelink">Contact</a>
+      </nav>
+
+    
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    // set year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile menu toggle
+    const mobileMenu = document.getElementById('mobileMenu');
+    const hamburger = document.getElementById('hamburger');
+    const closeMobile = document.getElementById('closeMobile');
+
+    if(hamburger){
+      hamburger.addEventListener('click', () => {
+        mobileMenu.style.display = 'block';
+      });
+    }
+    if(closeMobile){
+      closeMobile.addEventListener('click', () => {
+        mobileMenu.style.display = 'none';
+      });
+    }
+    // Close mobile menu when clicking outside the drawer
+    mobileMenu.addEventListener('click', (e) => {
+      if(e.target === mobileMenu) mobileMenu.style.display = 'none';
+    });
+
+    // Smooth scroll for in-page links
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', function(e){
+        const href = this.getAttribute('href');
+        if(href.length>1){
+          e.preventDefault();
+          const el = document.querySelector(href);
+          if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
+        }
+        // if mobile menu is open, close it after clicking
+        if(mobileMenu.style.display === 'block'){
+          mobileMenu.style.display = 'none';
+        }
+      })
+    })
+  </script>
+</body>
+</html>
